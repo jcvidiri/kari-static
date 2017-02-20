@@ -1,0 +1,31 @@
+{
+  "name": "kari-static",
+  "version": "1.0.0",
+  "author": "JCV",
+  "license": "MIT",
+  "description": "Karina Villalba",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jcvidiri/kari-static.git"
+  },
+  "dependencies": {
+    "imagemin": "*",
+    "imagemin-mozjpeg": "*",
+    "imagemin-pngquant": "*"
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-concat": "*",
+    "gulp-uglify": "*",
+    "gulp-imagemin": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-clean": "*",
+    "gulp-cssnano": "*",
+    "gulp-rename": "*",
+    "gulp-htmlmin": "*",
+    "gulp-inject": "*",
+    "bower-files": "*",
+    "wiredep": "*",
+    "del": "*"
+  }
+}
