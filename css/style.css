@@ -337,12 +337,13 @@ textarea {
   letter-spacing: 1px;
 }
 
-a.bigger-font {
-  font-size: 1.1vw!important;
-  padding-top: 20px!important;
-  padding-bottom: 20px!important;
+@media screen and (min-width: 1200px ) {
+  a.bigger-font {
+    font-size: 1.1vw!important;
+    padding-top: 20px!important;
+    padding-bottom: 20px!important;
+  }
 }
-
 .container{
   width: 94%;
 }
