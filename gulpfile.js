@@ -20,16 +20,14 @@ var timestamp = (new Date()).getTime();
 var files = {
     jsMain: 'js/*.js',
     styles: 'css/**/*.{css,min.css}',
-		sass:	'sass/*.*',
     images: 'images/*.*',
     index: 'index.html',
     home:  'home.html',
 };
 
 var buildFiles = {
-    jsMain: 'build/js/*.js',
-    styles: 'build/css/*.{css,map,min.css}',
-		sass:	'build/sass/*.*',
+    jsMain: 'build/js/*.*',
+    styles: 'build/css/*.*',
     index: 'build/index.html',
 };
 
@@ -46,10 +44,20 @@ var minifiedFiles = {
 //     .pipe(gulp.dest('build'));
 // });
 
-gulp.task('css-custom', ['clean-css'], function() {
-  return gulp.src([files.styles])
-    .pipe(concat('all.' + timestamp + '.min.css'))
-    .pipe(minifyCss())
+// gulp.task('css-custom', ['clean-css'], function() {
+//   return gulp.src([files.styles])
+//     .pipe(concat('all.' + timestamp + '.min.css'))
+//     .pipe(minifyCss())
+//     .pipe(gulp.dest('build/css'));
+// });
+
+gulp.task('copy-css',['clean-css'], function() {
+   return gulp.src('css/*.css')
+    .pipe(gulp.dest('build/css'));
+});
+
+gulp.task('copy-min-css', function() {
+   return gulp.src('css/*.min.css')
     .pipe(gulp.dest('build/css'));
 });
 
@@ -60,8 +68,28 @@ gulp.task('css-custom', ['clean-css'], function() {
 //     .pipe(gulp.dest('build/js'));
 // });
 
-gulp.task('copy-js', function() {
+
+gulp.task('inject-own-js', function() {
+    return gulp.src(buildFiles.index)
+        .pipe(inject(gulp.src(buildFiles.jsMain, { read: false }), {relative: true}))
+        .pipe(gulp.dest('build'));
+});
+
+gulp.task('inject-own-css', function() {
+    return gulp.src(buildFiles.index)
+        .pipe(inject(gulp.src(buildFiles.styles, { read: false}),  {relative: true}))
+        .pipe(gulp.dest('build'));
+});
+
+gulp.task('inject-own', ['inject-own-css', 'inject-own-js'], function() {
+
+});
+
+
+gulp.task('copy-js', ['clean-js'], function() {
    return gulp.src('js/*.js')
+    // .pipe(minifyJs())
+    // .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('build/js'));
 });
 
@@ -102,11 +130,10 @@ gulp.task('clean-css', function() {
     .pipe(clean());
 });
 
-gulp.task('prepare-libs', ['css-custom', 'copy-js', 'images-png']);
+gulp.task('prepare-libs', ['copy-css', 'copy-js', 'images-png']);
 
 gulp.task('build', ['prepare-libs'], function() {
   return gulp.src(files.home)
-    .pipe(inject(gulp.src([minifiedFiles.lib, minifiedFiles.custom], { read: false, cwd: __dirname + '/build' }), { addRootSlash: false }))
     .pipe(rename('index.html'))
     .pipe(minifyHTML({ collapseWhitespace: true }))
     .pipe(gulp.dest('build'));
