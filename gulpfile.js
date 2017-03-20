@@ -1,71 +1,113 @@
-	var gulp = require('gulp');
-	var sass = require('gulp-sass');
-	var prefix = require('gulp-autoprefixer');
-	var minifycss = require('gulp-minify-css');
-	var uglify = require('gulp-uglify');
-	var svgmin = require('gulp-svgmin');
-	var imagemin = require('gulp-imagemin');
-	var size = require('gulp-size');
+var gulp = require('gulp'),
+    clean      = require('gulp-clean'),
+    minifyCss  = require('gulp-cssnano'),
+    minifyJs   = require('gulp-uglify'),
+    minifyImgs = require('gulp-imagemin'),
 
+    imagemin   = require('imagemin'),
+    imageminMozjpeg = require('imagemin-mozjpeg'),
+    imageminPngquant = require('imagemin-pngquant'),
 
-		gulp.task('sass', function (){
-			gulp.src(['./sass/**/*.scss', '!./sass/**/_variables.scss'])
-				.pipe(sass({
-					includePaths: ['./sass/**/'],
-					outputStyle: 'expanded'
-				}))
-				.pipe(prefix(
-					"last 1 version", "> 1%", "ie 8", "ie 7"
-					))
-				.pipe(gulp.dest('./dev/css'))
-				.pipe(minifycss())
-				.pipe(gulp.dest('./prod/css'));
-		});
+    rename     = require('gulp-rename'),
+    lib        = require('bower-files')(),
+    concat     = require('gulp-concat'),
+    minifyHTML = require('gulp-htmlmin'),
+    wiredep    = require('wiredep').stream,
+    inject     = require('gulp-inject');
 
-	// Uglify JS
-		gulp.task('uglify', function(){
-			gulp.src('./dev/js/*.js')
-				.pipe(uglify())
-				.pipe(gulp.dest('./prod/js'));
-		});
+var timestamp = (new Date()).getTime();
 
-	// Images
-		gulp.task('svgmin', function() {
-			gulp.src('./dev/img/svg/*.svg')
-			.pipe(svgmin())
-			.pipe(gulp.dest('./dev/img/svg'))
-			.pipe(gulp.dest('./prod/img/svg'));
-		});
+var files = {
+    jsMain: 'js/*.js',
+    styles: 'css/**/*.{css,min.css}',
+		sass:	'sass/*.*',
+    images: 'images/*.*',
+    index: 'index.html',
+    home:  'home.html',
+};
 
-		gulp.task('imagemin', function () {
-			gulp.src('./dev/img/**/*')
-			.pipe(imagemin())
-			.pipe(gulp.dest('./dev/img'))
-			.pipe(gulp.dest('./prod/img'));
-		});
+var buildFiles = {
+    jsMain: 'build/js/*.js',
+    styles: 'build/css/*.{css,map,min.css}',
+		sass:	'build/sass/*.*',
+    index: 'build/index.html',
+};
 
-	// Stats and Things
-		gulp.task('stats', function () {
-			gulp.src('./prod/**/*')
-			.pipe(size())
-			.pipe(gulp.dest('./prod'));
-		});
+var minifiedFiles = {
+  custom: '*/all.*.min.*',
+  lib: '*/lib.*.min.*'
+};
 
-//
+// gulp.task('inject-libs', function() {
+//   return gulp.src(files.home)
+//     .pipe(inject(gulp.src([buildFiles.jsMain, buildFiles.styles], { read: false }), { relative: true }))
+//     .pipe(wiredep())
+//     .pipe(rename('index.html'))
+//     .pipe(gulp.dest('build'));
+// });
 
-	gulp.task('default', function(){
+gulp.task('css-custom', ['clean-css'], function() {
+  return gulp.src([files.styles])
+    .pipe(concat('all.' + timestamp + '.min.css'))
+    .pipe(minifyCss())
+    .pipe(gulp.dest('build/css'));
+});
 
-		// watch me getting Sassy
-		gulp.watch("./dev/sass/**/*.scss", function(event){
-			gulp.run('sass');
-		});
-		// make my JavaScript ugly
-		gulp.watch("./dev/js/**/*.js", function(event){
-			gulp.run('uglify');
-		});
-		// images
-		gulp.watch("./dev/img/**/*", function(event){
-			gulp.run('imagemin');
-			gulp.run('svgmin');
-		});
-	});
+// gulp.task('js-custom',['copy-min'], function() {
+//   return gulp.src([files.jsMain])
+//     .pipe(concat('all.' + timestamp + '.min.js'))
+//     .pipe(minifyJs())
+//     .pipe(gulp.dest('build/js'));
+// });
+
+gulp.task('copy-js', function() {
+   return gulp.src('js/*.js')
+    .pipe(gulp.dest('build/js'));
+});
+
+// gulp.task('js-libs', ['clean-js'], function() {
+//   return gulp.src(lib.ext('js').files)
+//     .pipe(concat('lib.' + timestamp  + '.min.js'))
+//     .pipe(minifyJs())
+//     .pipe(gulp.dest('build/js'));
+// });
+
+// gulp.task('css-libs', ['clean-css'], function() {
+//   return gulp.src(lib.ext('css').files)
+//     .pipe(concat('lib.' + timestamp  + '.min.css'))
+//     .pipe(minifyCss())
+//     .pipe(gulp.dest('build/css'));
+// });
+
+gulp.task('images-jpg', ['clean-images'], function() {
+  imagemin(['images/*.jpg'], 'build/images', { plugins: [imageminMozjpeg()] })
+});
+
+gulp.task('images-png', ['images-jpg'], function() {
+  imagemin(['images/*.png'], 'build/images', { plugins: [imageminPngquant({quality: '65-80'})] })
+});
+
+gulp.task('clean-images', function() {
+  return gulp.src(['build/images'], { read: false })
+    .pipe(clean());
+});
+
+gulp.task('clean-js', function() {
+  return gulp.src(['build/js'], { read: false })
+    .pipe(clean());
+});
+
+gulp.task('clean-css', function() {
+  return gulp.src(['build/css'], { read: false })
+    .pipe(clean());
+});
+
+gulp.task('prepare-libs', ['css-custom', 'copy-js', 'images-png']);
+
+gulp.task('build', ['prepare-libs'], function() {
+  return gulp.src(files.home)
+    .pipe(inject(gulp.src([minifiedFiles.lib, minifiedFiles.custom], { read: false, cwd: __dirname + '/build' }), { addRootSlash: false }))
+    .pipe(rename('index.html'))
+    .pipe(minifyHTML({ collapseWhitespace: true }))
+    .pipe(gulp.dest('build'));
+});

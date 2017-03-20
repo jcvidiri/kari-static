@@ -17,8 +17,8 @@ html.overflow #header-section, html.overflow #main, html.overflow #hero, html.ov
 }
 
 body {
-  font-family: 'Lato', Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;, sans-serif;
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: 'Lato', Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 300;
@@ -26,7 +26,7 @@ body {
 }
 @media screen and (max-width: 768px) {
   body {
-    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
   }
@@ -72,7 +72,7 @@ input {
 }
 
 h1 {
-	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 23px;
 	font-style: normal;
 	font-variant: normal;
@@ -80,7 +80,7 @@ h1 {
 	line-height: 23px;
 }
 h3 {
-	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 	font-size: 17px;
 	font-style: normal;
 	font-variant: normal;
@@ -88,7 +88,7 @@ h3 {
 	line-height: 23px;
 }
 p {
-	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 	font-size: 18px;
 	font-style: normal;
 	font-variant: normal;
@@ -96,7 +96,7 @@ p {
 	line-height: 23px;
 }
 blockquote {
-	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 	font-size: 17px;
 	font-style: normal;
 	font-variant: normal;
@@ -104,7 +104,7 @@ blockquote {
 	line-height: 23px;
 }
 pre {
-	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 	font-size: 11px;
 	font-style: normal;
 	font-variant: normal;
@@ -118,37 +118,37 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 h1, .h1 {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 30px;
   line-height: 42px;
 }
 
 h2, .h2 {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 26px;
   line-height: 38px;
 }
 
 h3, .h3 {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 20px;
   line-height: 32px;
 }
 
 h4, .h4 {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 16px;
   line-height: 28px;
 }
 
 h5, .h5 {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 14px;
   line-height: 24px;
 }
 
 h6, .h6 {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 12px;
   line-height: 24px;
 }
@@ -175,11 +175,11 @@ span.line {
 }
 
 .font-family-calibri {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;, sans-serif;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 
 .sans-serif {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;, sans-serif;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 
 input[type="text"],
@@ -204,13 +204,13 @@ textarea {
 }
 
 .lead {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 40px;
   line-height: 52px;
 }
 @media screen and (max-width: 768px) {
   .lead {
-    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
     font-size: 30px;
     line-height: 42px;
   }
@@ -317,7 +317,7 @@ textarea {
   border-top: none;
   text-decoration: none;
   zoom: 1;
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 13px;
   border-bottom: none !important;
 }
@@ -447,7 +447,7 @@ textarea {
   float: right;
   margin-right: 10px;
   top: 13px;
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 12px;
   content: "\e649";
   color: rgba(255, 255, 255, 0.3);
@@ -506,7 +506,7 @@ textarea {
 #primary-menu .sub-menu a {
   letter-spacing: 0;
   padding: 0 15px;
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 14px;
   line-height: 26px;
   color: #ffffff !important;
@@ -624,7 +624,7 @@ textarea {
 #logo-mobile-wrap h1 {
   padding: 0;
   margin: 0;
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 20px;
   font-weight: bold;
 }
@@ -674,7 +674,7 @@ textarea {
   text-align: center;
 }
 #hero .hero-wrap .hero-intro > h1 {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 40px;
   font-weight: normal;
   line-height: 62px;
@@ -684,14 +684,14 @@ textarea {
 @media screen and (max-width: 768px) {
   #hero .hero-wrap .hero-intro > h1 {
     letter-spacing: 4px;
-    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
     font-size: 30px;
     line-height: 42px;
   }
 }
 #hero .hero-wrap .hero-intro > h2 {
   letter-spacing: 4px;
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 16px;
   text-transform: uppercase;
   padding-bottom: 20px;
@@ -851,7 +851,7 @@ body.mobile-menu-visible #mobile-menu {
 }
 
 .uppercase-heading-sm {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 14px;
   line-height: 26px;
   text-transform: uppercase;
@@ -1020,7 +1020,7 @@ Components
   width: 15%;
 }
 .feature-1 .feature-blurb ul li .feature-blurb-icon i {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 40px;
   color: #5F021F;
 }
@@ -1105,14 +1105,14 @@ Components
 }
 @media screen and (max-width: 768px) {
   .header .heading {
-    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
     font-size: 30px !important;
     line-height: 42px !important;
   }
 }
 .header .heading-sub {
   color: #777;
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 18px;
   line-height: 30px;
 }
@@ -1132,7 +1132,7 @@ Components
 }
 
 .tab-menu-icon {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 20px;
   position: relative;
   float: left;
@@ -1193,14 +1193,14 @@ Components
   margin: 0 auto;
   color: #ffffff;
   border-left: none;
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 45px;
   line-height: 57px;
 }
 @media screen and (max-width: 768px) {
   #testimonial blockquote {
     width: 100%;
-    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
     font-size: 35px;
     line-height: 47px;
   }
@@ -1210,7 +1210,7 @@ Components
   color: #ffffff;
 }
 #testimonial .testimonial-author {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: 18px;
 }
 #testimonial .uppercase-heading-sm {
