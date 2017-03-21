@@ -1,9 +1,9 @@
 {
   "name": "kari-static",
   "version": "1.0.0",
-  "author": "JCV",
+  "author": "Juan Cruz Vidiri <jcvidiri@gmail.com>",
   "license": "MIT",
-  "description": "Karina Villalba",
+  "description": "Website for an ophthalmologist",
   "repository": {
     "type": "git",
     "url": "https://github.com/jcvidiri/kari-static.git"

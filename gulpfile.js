@@ -1,6 +1,4 @@
-// gulpfile
-// Author: jcv
-// first build, then inject-own
+// Author: Juan Cruz Vidiri <jcvidiri@gmail.com>
 
 var gulp = require('gulp'),
     clean      = require('gulp-clean'),
@@ -13,8 +11,14 @@ var gulp = require('gulp'),
     inject     = require('gulp-inject');
 
 var files = {
-    jsMain: 'js/*.js',
-    styles: 'css/**/*.*',
+    allJs: 'js/*.js',
+    minJs: 'js/*.min.js',
+    nonMinJs: ['js/*.js', '!js/*.min.js'],
+
+    allStyles: 'css/**/*.*',
+    minStyles: 'css/*.min.css',
+    nonMinStyles: ['css/*.css', '!css/*.min.css'],
+
     index: 'index.html',
     home:  'home.html',
     cur:  'cur.html',
@@ -24,44 +28,47 @@ var files = {
 };
 
 var buildFiles = {
-    jsMain: 'build/js/*.*',
-    styles: 'build/css/*.*',
+    allJs: 'build/js/*.*',
+    allStyles: 'build/css/*.*',
     allHtml: 'build/*.html',
 };
 
-gulp.task('copy-css',['clean-css'], function() {
-   return gulp.src('css/*.css')
-    .pipe(gulp.dest('build/css'));
+gulp.task('css',['clean-css'], function() {
+    gulp.src(files.minStyles)
+      .pipe(gulp.dest('build/css'));
+
+    return gulp.src(files.nonMinStyles)
+        .pipe(minifyCss())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('build/css'));
 });
 
-gulp.task('copy-min-css', function() {
-   return gulp.src('css/*.min.css')
-    .pipe(gulp.dest('build/css'));
+gulp.task('inject-own', ['inject-own-js'], function() {
 });
 
 gulp.task('inject-own-js', ['inject-own-css'], function() {
     return gulp.src(buildFiles.allHtml)
-        .pipe(inject(gulp.src(buildFiles.jsMain, { read: false }), {relative: true}))
+        .pipe(inject(gulp.src(buildFiles.allJs, { read: false }), {relative: true}))
         .pipe(gulp.dest('build'));
 });
 
 gulp.task('inject-own-css', function() {
     return gulp.src(buildFiles.allHtml)
-        .pipe(inject(gulp.src(buildFiles.styles, { read: false}),  {relative: true}))
+        .pipe(inject(gulp.src(buildFiles.allStyles, { read: false}),  {relative: true}))
         .pipe(gulp.dest('build'));
 });
 
-gulp.task('inject-own', ['inject-own-js'], function() {
+gulp.task('js', ['clean-js'], function() {
 
-});
-
-gulp.task('copy-js', ['clean-js'], function() {
-   return gulp.src('js/*.js')
-    // .pipe(minifyJs())
-    // .pipe(rename({ suffix: '.min' }))
+  gulp.src(files.minJs)
     .pipe(gulp.dest('build/js'));
-});
 
+  return gulp.src(files.nonMinJs)
+      .pipe(minifyJs())
+      .pipe(rename({suffix: '.min'}))
+      .pipe(gulp.dest('build/js'));
+
+});
 
 gulp.task('images', ['clean-images'], function() {
 	return gulp.src('img/*')
@@ -85,7 +92,7 @@ gulp.task('clean-css', function() {
     .pipe(clean());
 });
 
-gulp.task('prepare-libs', ['copy-css', 'copy-js', 'images']);
+gulp.task('prepare-libs', ['css', 'js', 'images']);
 
 gulp.task('build', ['prepare-libs'], function() {
   gulp.src(files.home)
@@ -108,8 +115,11 @@ gulp.task('build', ['prepare-libs'], function() {
       .pipe(minifyHTML({ collapseWhitespace: true }))
       .pipe(gulp.dest('build'));
 
-  return gulp.src(files.con)
+  gulp.src(files.con)
       .pipe(rename('contact.html'))
       .pipe(minifyHTML({ collapseWhitespace: true }))
+      .pipe(gulp.dest('build'));
+
+  return gulp.src(['robots.txt', '404.html', 'apple-touch-icon-precomposed.png', 'favicon.ico' ])
       .pipe(gulp.dest('build'));
 });
