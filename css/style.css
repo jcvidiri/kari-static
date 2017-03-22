@@ -960,15 +960,14 @@ body.mobile-menu-visible #mobile-menu {
   height: 20px;
 }
 
-
 .no-margin-bottom {
   margin-bottom: 0 !important;
 }
 
 .uppercase-heading-sm {
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 26px;
+  font-size: 18px;
+  line-height: 200%;
   text-transform: uppercase;
   letter-spacing: 3px;
   color: #7b7b7b;
@@ -980,6 +979,11 @@ body.mobile-menu-visible #mobile-menu {
 
 .image-popup:hover {
   opacity: .7;
+}
+
+img.resize{
+   max-width:65%;
+   max-height:65%;
 }
 
 /*
@@ -1008,6 +1012,10 @@ Components
   box-shadow: none;
   outline: none !important;
   border-color: transparent;
+}
+
+.textShadow{
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .btn-outline {
@@ -1302,6 +1310,18 @@ Components
     padding: 3em 0;
   }
 }
+
+#testimonial2 {
+  padding: 10em 0;
+  background: #000 url(../img/consultorio1.jpg) no-repeat center center;
+  background-size: cover;
+}
+@media screen and (max-width: 768px) {
+  #testimonial2 {
+    padding: 3em 0;
+  }
+}
+
 #testimonial blockquote {
   padding-left: 0;
   width: 70%;

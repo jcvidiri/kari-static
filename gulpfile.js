@@ -120,6 +120,9 @@ gulp.task('build', ['prepare-libs'], function() {
       .pipe(minifyHTML({ collapseWhitespace: true }))
       .pipe(gulp.dest('build'));
 
-  return gulp.src(['robots.txt', '404.html', 'apple-touch-icon-precomposed.png', 'favicon.ico' ])
+  gulp.src(['fonts/**/*'])
       .pipe(gulp.dest('build'));
+
+  return gulp.src(['robots.txt', '404.html', 'apple-touch-icon-precomposed.png', 'favicon.ico' ])
+      .pipe(gulp.dest('build/fonts'));
 });
