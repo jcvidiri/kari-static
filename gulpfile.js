@@ -121,8 +121,8 @@ gulp.task('build', ['prepare-libs'], function() {
       .pipe(gulp.dest('build'));
 
   gulp.src(['fonts/**/*'])
-      .pipe(gulp.dest('build'));
+      .pipe(gulp.dest('build/fonts'));
 
   return gulp.src(['robots.txt', '404.html', 'apple-touch-icon-precomposed.png', 'favicon.ico' ])
-      .pipe(gulp.dest('build/fonts'));
+      .pipe(gulp.dest('build'));
 });
