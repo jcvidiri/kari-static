@@ -123,6 +123,6 @@ gulp.task('build', ['prepare-libs'], function() {
   gulp.src(['fonts/**/*'])
       .pipe(gulp.dest('build/fonts'));
 
-  return gulp.src(['robots.txt', '404.html', 'apple-touch-icon-precomposed.png', 'favicon.ico' ])
+  return gulp.src(['robots.txt', '404.html', 'apple-touch-icon-precomposed.png', 'favicon.ico', 'CNAME' ])
       .pipe(gulp.dest('build'));
 });
