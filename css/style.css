@@ -1652,4 +1652,6 @@ a > img.align-center {
   margin-right: auto;
 }
 
-/*# sourceMappingURL=style.css.map */
+.fullwidth{
+	width: 100%
+}
