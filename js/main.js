@@ -31,7 +31,7 @@
 				});
 
 				$('<div id="logo-mobile-wrap">').append(cloneLogo).insertBefore('#header-section');
-				$('#logo-mobile-wrap').append('<a href="#" id="mobile-menu-btn"><i class="ti-menu"></i></a><i class="fa fa-phone" aria-hidden="true"> 011 6467-1313</i> <a href="contact.html"><i class="fa fa-map-marker" aria-hidden="true"></i></a>')
+				$('#logo-mobile-wrap').append('<a href="#" id="mobile-menu-btn"><i class="ti-menu"></i></a><i class="fa fa-phone" aria-hidden="true"> 011 6467-1313</i> <a style="margin-left:5px" href="contact.html"><i class="fa fa-map-marker" aria-hidden="true"> CONTACTO </i></a>')
 				$('<div id="mobile-menu">').append(clone).insertBefore('#header-section');
 
 				$('#header-section').hide();
