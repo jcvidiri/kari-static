@@ -24,6 +24,7 @@ var files = {
     cur:  'cur.html',
     soc:  'soc.html',
     inf:  'inf.html',
+    aes:  'aes.html',
     con:  'con.html'
 };
 
@@ -112,6 +113,11 @@ gulp.task('build', ['prepare-libs'], function() {
 
   gulp.src(files.inf)
       .pipe(rename('information.html'))
+      .pipe(minifyHTML({ collapseWhitespace: true }))
+      .pipe(gulp.dest('build'));
+
+  gulp.src(files.aes)
+      .pipe(rename('aesthetics.html'))
       .pipe(minifyHTML({ collapseWhitespace: true }))
       .pipe(gulp.dest('build'));
 
