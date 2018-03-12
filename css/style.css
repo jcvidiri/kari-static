@@ -982,8 +982,8 @@ body.mobile-menu-visible #mobile-menu {
 }
 
 img.resize{
-   max-width:65%;
-   max-height:65%;
+   max-width:85%;
+   max-height:85%;
 }
 
 /*
@@ -1324,7 +1324,7 @@ Components
 
 #testimonial3 {
   padding: 10em 0;
-  background: #000 url(../img/fachada.jpg) no-repeat center center;
+  background: #000 url(../img/fachada2.jpg) no-repeat center center;
   background-size: cover;
 }
 @media screen and (max-width: 768px) {
